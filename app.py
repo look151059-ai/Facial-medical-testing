@@ -83,3 +83,11 @@ if __name__ == "__main__":
     server_name = "0.0.0.0" if is_hf_spaces else "127.0.0.1"
     server_port = int(os.getenv("PORT", 7860))
     demo.launch(server_name=server_name, server_port=server_port)
+
+import gradio as gr
+
+def greet(name):
+    return "Hello " + name + "!!"
+
+demo = gr.Interface(fn=greet, inputs="text", outputs="text")
+demo.launch()
